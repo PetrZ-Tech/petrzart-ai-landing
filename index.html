@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Петр Зимин — AI-интегратор и автоматизатор бизнес-процессов</title>
+  <meta name="description" content="AI-интеграция и автоматизация бизнес-процессов: заявки, документы, CRM, оплаты, рассылки, отчеты, n8n, ИИ, NocoDB, Bitrix24, Telegram и API." />
+  <meta property="og:title" content="Петр Зимин — AI-интегратор" />
+  <meta property="og:description" content="Помогаю бизнесу навести порядок в заявках, CRM, оплатах, рассылках и отчетах с помощью n8n, ИИ и API-интеграций." />
+  <meta property="og:image" content="background.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#070707;--soft:#101010;--card:rgba(255,255,255,.05);--gold:#c5a059;--gold2:#e2c477;--text:#fff;--muted:rgba(255,255,255,.72);--muted2:rgba(255,255,255,.52);--border:rgba(197,160,89,.2);--border2:rgba(197,160,89,.55);--r:24px;--shadow:0 30px 90px rgba(0,0,0,.35)}
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}a{color:inherit;text-decoration:none}
+    header{position:fixed;inset:0 0 auto;z-index:50;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 7vw;background:rgba(7,7,7,.78);border-bottom:1px solid rgba(197,160,89,.12);backdrop-filter:blur(18px)}
+    .logo{font-family:"Playfair Display",serif;color:var(--gold2);font-size:20px;font-weight:600;letter-spacing:.08em;line-height:1.05}.logo small{display:block;font-family:Inter,sans-serif;color:var(--muted2);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+    nav{display:flex;align-items:center;gap:26px;font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}nav a{transition:.25s}nav a:hover{color:var(--gold2)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border:1px solid transparent;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;transition:.25s}.btn:hover{transform:translateY(-2px)}
+    .btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#090909;box-shadow:0 18px 50px rgba(197,160,89,.22)}.btn-outline{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.035);color:var(--text)}.btn-outline:hover{border-color:var(--gold);color:var(--gold2)}
+    .hero{min-height:100vh;display:grid;align-items:center;padding:120px 7vw 80px;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(7,7,7,.94),rgba(7,7,7,.76) 45%,rgba(7,7,7,.22)),url("background.jpg") center/cover no-repeat}.hero:after{content:"";position:absolute;inset:auto 0 0;height:220px;background:linear-gradient(to bottom,transparent,var(--bg))}
+    .hero-content{position:relative;z-index:1;max-width:1080px}.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--gold2);text-transform:uppercase;letter-spacing:.32em;font-size:12px;font-weight:700;margin-bottom:26px}.eyebrow:before{content:"";width:44px;height:1px;background:var(--gold)}
+    h1,h2,h3{font-family:"Playfair Display",serif;font-weight:600;letter-spacing:-.02em}h1{max-width:1020px;font-size:clamp(42px,6.4vw,86px);line-height:1.02;margin-bottom:28px}.hero-subtitle{max-width:780px;color:var(--muted);font-size:clamp(17px,1.6vw,23px);font-weight:300;margin-bottom:42px}
+    .chips{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:44px}.chip{border:1px solid rgba(197,160,89,.24);background:rgba(0,0,0,.28);color:var(--muted);border-radius:999px;padding:10px 15px;font-size:13px;backdrop-filter:blur(12px)}.actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+    section{padding:105px 7vw}.head{max-width:900px;margin:0 auto 56px;text-align:center}.kicker{color:var(--gold2);text-transform:uppercase;letter-spacing:.26em;font-size:12px;font-weight:700;margin-bottom:14px}h2{font-size:clamp(34px,4vw,56px);line-height:1.08;margin-bottom:18px}.desc{color:var(--muted);font-size:17px;max-width:780px;margin:0 auto}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.card{background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.022));border:1px solid var(--border);border-radius:var(--r);padding:30px;box-shadow:var(--shadow);transition:.28s}.card:hover{transform:translateY(-4px);border-color:var(--border2);background:linear-gradient(180deg,rgba(197,160,89,.08),rgba(255,255,255,.025))}.card h3{font-size:24px;line-height:1.15;margin-bottom:14px}.card p{color:var(--muted);font-size:15px}.card ul{list-style:none;margin-top:22px;border-top:1px solid rgba(197,160,89,.14);padding-top:18px}.card li{color:var(--gold2);font-size:13px;font-weight:600;margin-bottom:8px}
+    .case{background:rgba(197,160,89,.025)}.case-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:28px}.case-main{padding:42px;border-radius:30px;border:1px solid var(--border2);background:radial-gradient(circle at 20% 15%,rgba(197,160,89,.18),transparent 28%),linear-gradient(180deg,rgba(197,160,89,.085),rgba(255,255,255,.025));box-shadow:var(--shadow)}.case-main h3{font-size:clamp(30px,3vw,46px);margin-bottom:16px}.case-main p{color:var(--muted);margin-bottom:18px}
+    .stack{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.stack span{color:var(--muted);border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.035);border-radius:999px;padding:9px 12px;font-size:12px;font-weight:600}
+    .steps{display:grid;gap:14px}.step{display:grid;grid-template-columns:54px 1fr;gap:16px;align-items:center;border:1px solid rgba(197,160,89,.18);background:rgba(255,255,255,.035);border-radius:18px;padding:18px}.step-num{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:rgba(197,160,89,.12);color:var(--gold2);font-weight:800}.step span{display:block;color:var(--muted2);font-size:13px;line-height:1.45}
+    .process{max-width:980px;margin:0 auto;display:grid;gap:18px}.process-item{display:grid;grid-template-columns:110px 1fr;gap:28px;padding:28px;border-left:2px solid var(--gold);background:rgba(255,255,255,.03);border-radius:0 22px 22px 0}.num{font-family:"Playfair Display",serif;color:var(--gold2);font-size:32px;line-height:1}.process-item p{color:var(--muted)}
+    .cta{margin:0 7vw 90px;padding:58px;border-radius:34px;border:1px solid var(--border2);background:linear-gradient(135deg,rgba(197,160,89,.14),rgba(255,255,255,.035));box-shadow:var(--shadow);display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}.cta h2{text-align:left;margin-bottom:12px}.cta p{color:var(--muted);max-width:780px}
+    footer{padding:54px 7vw;border-top:1px solid rgba(197,160,89,.12);color:var(--muted2);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px}footer a{color:var(--gold2)}
+    .modal{position:fixed;z-index:100;inset:0;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(0,0,0,.82);backdrop-filter:blur(16px)}.modal.open{display:flex}.modal-content{width:min(560px,100%);border-radius:30px;border:1px solid var(--border2);background:#0d0d0e;padding:38px;position:relative;box-shadow:0 40px 110px rgba(0,0,0,.5)}.modal-content h3{font-size:34px;color:var(--gold2);margin-bottom:10px}.modal-content p{color:var(--muted);margin-bottom:24px}.close{position:absolute;top:18px;right:22px;color:var(--gold2);font-size:32px;line-height:1;cursor:pointer;border:0;background:transparent}
+    form input,form textarea{width:100%;margin-bottom:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.045);color:var(--text);border-radius:16px;padding:16px 18px;outline:none;font:inherit}form input:focus,form textarea:focus{border-color:var(--gold)}.consent{display:flex;gap:12px;margin:10px 0 22px;color:var(--muted2);font-size:12px;line-height:1.45}.consent input{width:18px;height:18px;accent-color:var(--gold);margin-top:2px;flex:0 0 auto}.consent a{color:var(--gold2);text-decoration:underline}
+    @media(max-width:1080px){.grid{grid-template-columns:repeat(2,1fr)}.case-wrap,.cta{grid-template-columns:1fr}}@media(max-width:760px){header{height:68px;padding:0 20px}nav a:not(.nav-contact),nav .hide-mobile{display:none}nav{gap:10px}.btn{min-height:48px;padding:0 18px;font-size:11px}.hero{padding:105px 20px 70px}h1{font-size:42px}.hero-subtitle{font-size:17px}section{padding:76px 20px}.grid{grid-template-columns:1fr}.card,.case-main{padding:24px}.process-item{grid-template-columns:1fr;gap:12px;padding:24px}.cta{margin:0 20px 70px;padding:30px}footer{padding:38px 20px}}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="#top">ЗИМИН ПЕТР<small>AI · n8n · automation</small></a>
+    <nav>
+      <a href="#services">Услуги</a><a href="#case">Кейс</a><a href="#portfolio">Портфолио</a><a href="#process">Метод</a>
+      <a class="nav-contact" href="https://t.me/ZimPetr" target="_blank" rel="noopener">Telegram</a>
+      <button class="btn btn-gold hide-mobile" onclick="openModal()">Обсудить задачу</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">AI-интегратор и автоматизатор</div>
+        <h1>Навожу порядок в заявках, CRM, оплатах, рассылках и отчётах</h1>
+        <p class="hero-subtitle">Помогаю бизнесу убирать ручную рутину: заявки больше не теряются, данные автоматически попадают в базу и CRM, а руководитель получает понятную картину по процессам.</p>
+        <div class="chips"><span class="chip">n8n + ИИ</span><span class="chip">Webhook / API</span><span class="chip">NocoDB / Supabase</span><span class="chip">Bitrix24 / CRM</span><span class="chip">Telegram / WhatsApp</span><span class="chip">ЮMoney / Robokassa</span></div>
+        <div class="actions"><button class="btn btn-gold" onclick="openModal()">Обсудить задачу</button><a class="btn btn-outline" href="#case">Посмотреть главный кейс</a></div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="head"><div class="kicker">Чем полезен бизнесу</div><h2>Автоматизация там, где сейчас хаос и ручная работа</h2><p class="desc">Я не просто соединяю сервисы между собой. Сначала разбираю процесс, нахожу узкие места и собираю понятную систему, которая помогает команде работать быстрее.</p></div>
+      <div class="grid">
+        <article class="card"><h3>Заявки и записи</h3><p>Формы, квизы, Telegram-боты и сайты передают обращения в единый процесс. Заявка получает статус, ответственного и следующий шаг.</p><ul><li>Заявки не теряются</li><li>Меньше ручного переноса</li><li>Быстрее первичная обработка</li></ul></article>
+        <article class="card"><h3>CRM и базы данных</h3><p>Настраиваю передачу данных в Bitrix24, NocoDB, Supabase, Google Sheets и другие системы, чтобы вся история была в одном месте.</p><ul><li>Единый реестр обращений</li><li>Статусы и история обработки</li><li>Понятная аналитика</li></ul></article>
+        <article class="card"><h3>ИИ-классификация</h3><p>ИИ помогает разобрать сообщение, определить категорию, приоритет, сложность и следующий шаг. Логика процесса остаётся под контролем workflow.</p><ul><li>Быстрее сортировка заявок</li><li>Приоритеты видны сразу</li><li>Меньше нагрузки на менеджера</li></ul></article>
+        <article class="card"><h3>Оплаты и доступы</h3><p>Подключаю платёжные сценарии, уведомления и выдачу доступа после оплаты через ЮMoney, Robokassa и другие сервисы.</p><ul><li>Меньше ручных проверок</li><li>Быстрая фиксация оплаты</li><li>Автоматическая выдача результата</li></ul></article>
+        <article class="card"><h3>Рассылки и уведомления</h3><p>Собираю цепочки сообщений, уведомления в Telegram/WhatsApp, письма, напоминания и внутренние алерты для команды.</p><ul><li>Клиент получает ответ быстрее</li><li>Команда видит важные события</li><li>Снижается риск забытых задач</li></ul></article>
+        <article class="card"><h3>Отчёты руководителю</h3><p>Автоматические отчёты показывают количество заявок, категории, приоритеты, проблемные места и задачи, требующие внимания.</p><ul><li>Контроль без ручных сводок</li><li>Понятная картина по процессам</li><li>Решения на основе данных</li></ul></article>
+      </div>
+    </section>
+
+    <section id="case" class="case">
+      <div class="head"><div class="kicker">Главный кейс</div><h2>AI Intake — система обработки заявок на автоматизацию</h2><p class="desc">Рабочий прототип системы, которая принимает заявку, классифицирует её через ИИ, сохраняет в базу, отправляет в CRM и готовит отчёт руководителю.</p></div>
+      <div class="case-wrap">
+        <article class="case-main">
+          <h3>Форма → n8n → ИИ → NocoDB → Bitrix24 → отчёт</h3>
+          <p>Пользователь заполняет форму на сайте, описывает процесс, проблему, ожидаемый результат, частоту выполнения и срочность. После отправки данные поступают в n8n через webhook.</p>
+          <p>Workflow структурирует заявку, формирует регистрационный номер и передаёт данные на ИИ-классификацию. ИИ определяет категорию, сложность, приоритет и следующий рекомендуемый шаг.</p>
+          <p>Результат сохраняется в NocoDB как в операционный реестр, заявка уходит в Bitrix24, а руководитель получает уведомления и еженедельную сводку по входящему потоку.</p>
+          <div class="stack"><span>n8n</span><span>Webhook/API</span><span>ИИ-классификация</span><span>NocoDB</span><span>Bitrix24</span><span>Telegram</span><span>ReqBin</span><span>Executions</span></div>
+          <div class="actions" style="margin-top:30px"><a class="btn btn-gold" href="https://intake.petrzart.ru/" target="_blank" rel="noopener">Открыть проект</a><button class="btn btn-outline" onclick="openModal()">Хочу похожую систему</button></div>
+        </article>
+        <div class="steps">
+          <div class="step"><div class="step-num">01</div><div><strong>Сбор заявки</strong><span>Форма принимает данные о процессе, боли, результате и срочности.</span></div></div>
+          <div class="step"><div class="step-num">02</div><div><strong>Обработка в n8n</strong><span>Workflow проверяет данные, структурирует заявку и формирует номер.</span></div></div>
+          <div class="step"><div class="step-num">03</div><div><strong>ИИ-классификация</strong><span>ИИ определяет категорию, сложность, приоритет и следующий шаг.</span></div></div>
+          <div class="step"><div class="step-num">04</div><div><strong>NocoDB и Bitrix24</strong><span>Заявка сохраняется в реестр и отправляется в CRM/таск-систему.</span></div></div>
+          <div class="step"><div class="step-num">05</div><div><strong>Отчёт руководителю</strong><span>Система формирует сводку по заявкам, категориям и приоритетам.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="head"><div class="kicker">Портфолио</div><h2>Дополнительные проекты и навыки</h2><p class="desc">Эти проекты показывают подход к устойчивости, качеству данных и контролю ошибок.</p></div>
+      <div class="grid">
+        <article class="card"><h3>Защита от дублей</h3><p>Идемпотентный сценарий в n8n: ключ события, реестр обработанных заявок, статус processing, блокировка и безопасная остановка дублей.</p><ul><li>Повтор события не создаёт дубль</li><li>Снижается риск двойной отправки</li><li>Подходит для оплат и CRM</li></ul></article>
+        <article class="card"><h3>Обработка ошибок</h3><p>Сценарий фиксирует ошибку, связывает её с запуском, записывает лог и отправляет уведомление во внешний сервис.</p><ul><li>Ошибки не теряются</li><li>Есть связь с run_id</li><li>Проще поддерживать процесс</li></ul></article>
+        <article class="card"><h3>Конвейер данных</h3><p>Обработка «сырых» данных: нормализация, проверка качества и распределение записей по веткам clean, review и quarantine.</p><ul><li>Грязные данные не идут дальше</li><li>Понятные причины проверки</li><li>Готовность к аналитике</li></ul></article>
+        <article class="card"><h3>ИИ как сервис</h3><p>ИИ возвращает строго заданный JSON, а workflow проверяет формат, валидирует значения и выбирает безопасную ветку обработки.</p><ul><li>ИИ не управляет бизнес-логикой</li><li>Есть fallback-ветка</li><li>Контроль формата ответа</li></ul></article>
+        <article class="card"><h3>Платёжные сценарии</h3><p>Проработка логики приёма оплат, генерации ссылок и фиксации результата через ЮMoney, Robokassa и webhook-обработку.</p><ul><li>Оплата связана с заявкой</li><li>Меньше ручной сверки</li><li>Основа для автоворонок</li></ul></article>
+        <article class="card"><h3>AI-боты и ассистенты</h3><p>Проектирование ботов, которые помогают собирать данные, отвечать пользователю, передавать информацию в базу и запускать workflow.</p><ul><li>Telegram / WhatsApp</li><li>Сценарии диалогов</li><li>Связка с CRM и таблицами</li></ul></article>
+      </div>
+    </section>
+
+    <section id="process" style="background:rgba(255,255,255,.018)">
+      <div class="head"><div class="kicker">Как проходит работа</div><h2>От хаоса в процессе — к понятной системе</h2></div>
+      <div class="process">
+        <div class="process-item"><div class="num">01</div><div><h3>Разбираю процесс</h3><p>Смотрю, где теряются заявки, какие действия выполняются вручную, какие сервисы уже используются и где возникает лишняя нагрузка.</p></div></div>
+        <div class="process-item"><div class="num">02</div><div><h3>Проектирую логику</h3><p>Определяю точки входа, статусы, ветки обработки, интеграции, условия, уведомления, хранение данных и отчётность.</p></div></div>
+        <div class="process-item"><div class="num">03</div><div><h3>Собираю автоматизацию</h3><p>Настраиваю n8n, webhooks, API-запросы, базы, CRM, ИИ-классификацию, обработку ошибок и защиту от дублей.</p></div></div>
+        <div class="process-item"><div class="num">04</div><div><h3>Тестирую и передаю результат</h3><p>Проверяю успешные и ошибочные сценарии, фиксирую логику и показываю, как использовать систему.</p></div></div>
+      </div>
+    </section>
+
+    <div class="cta" id="contact"><div><div class="kicker" style="text-align:left">Связь</div><h2>Хотите, чтобы заявки не терялись, а бизнес использовал современные ИИ-инструменты?</h2><p>Напишите мне, кратко опишите задачу — разберём процесс и придумаем, что можно автоматизировать в первую очередь.</p></div><div class="actions"><a class="btn btn-gold" href="https://t.me/ZimPetr" target="_blank" rel="noopener">Telegram</a><a class="btn btn-outline" href="mailto:petrysha777@inbox.ru">Email</a></div></div>
+  </main>
+
+  <footer><div><strong style="color:var(--gold2)">Петр Зимин</strong><br>AI-интеграция и автоматизация бизнес-процессов</div><div>Telegram: <a href="https://t.me/ZimPetr" target="_blank" rel="noopener">@ZimPetr</a><br>Email: <a href="mailto:petrysha777@inbox.ru">petrysha777@inbox.ru</a><br><a href="policy.html">Политика конфиденциальности</a></div><div>© 2026</div></footer>
+
+  <div id="contactModal" class="modal" aria-hidden="true"><div class="modal-content"><button class="close" onclick="closeModal()" aria-label="Закрыть">&times;</button><h3>Обсудить задачу</h3><p>Оставьте контакт и коротко опишите, что хотите автоматизировать. Я свяжусь с вами и предложу первый вариант решения.</p><form id="leadForm"><input type="text" name="name" placeholder="Ваше имя" required><input type="text" name="contact" placeholder="Telegram, телефон или email" required><textarea name="task" rows="4" placeholder="Что нужно автоматизировать? Заявки, CRM, оплаты, рассылки, отчёты..."></textarea><label class="consent"><input type="checkbox" name="consent" required><span>Я даю согласие на обработку персональных данных в соответствии с <a href="policy.html" target="_blank">политикой конфиденциальности</a>.</span></label><button type="submit" class="btn btn-gold" style="width:100%">Отправить</button></form></div></div>
+
+  <script>
+    const modal=document.getElementById('contactModal');
+    function openModal(){modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+    function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+    window.addEventListener('click',e=>{if(e.target===modal)closeModal()});window.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+    document.getElementById('leadForm').addEventListener('submit',async function(e){e.preventDefault();const formData={name:this.name.value.trim(),contact:this.contact.value.trim(),task:this.task.value.trim(),source:'ai.petrzart.ru',created_at:new Date().toISOString()};const webhookUrl='ВАША_ССЫЛКА_ИЗ_N8N';if(webhookUrl.includes('ВАША_ССЫЛКА')){alert('Заявка принята. Пока форма работает в демонстрационном режиме — напишите мне в Telegram: @ZimPetr');closeModal();return}try{const r=await fetch(webhookUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(formData)});if(r.ok){alert('Заявка успешно отправлена.');this.reset();closeModal()}else{alert('Не удалось отправить заявку. Напишите мне напрямую в Telegram: @ZimPetr')}}catch(err){alert('Сервер недоступен. Напишите мне напрямую в Telegram: @ZimPetr')}})
+  </script>
+</body>
+</html>
