@@ -1,0 +1,315 @@
+{
+  "name": "AI Petrzart — Lead Form",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ai-petrzart-lead",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://ai.petrzart.ru"
+        }
+      },
+      "id": "a1f3c8e2-4b5d-4a6f-9c0d-1e2f3a4b5c6d",
+      "name": "Webhook — Lead Form",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [240, 300],
+      "webhookId": "ai-petrzart-lead"
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "duplicateItem": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f1a2b3c4-d5e6-7890-abcd-ef1234567890",
+              "name": "name",
+              "value": "={{ ($json.name || $json.body?.name || '').toString().trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "f2a3b4c5-d6e7-8901-bcde-f12345678901",
+              "name": "contact",
+              "value": "={{ ($json.contact || $json.body?.contact || '').toString().trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "f3a4b5c6-d7e8-9012-cdef-123456789012",
+              "name": "task",
+              "value": "={{ ($json.task || $json.body?.task || '').toString().trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "f4a5b6c7-d8e9-0123-def0-234567890123",
+              "name": "source",
+              "value": "={{ ($json.source || $json.body?.source || 'ai.petrzart.ru').toString().trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "f5a6b7c8-d9e0-1234-ef01-345678901234",
+              "name": "created_at",
+              "value": "={{ ($json.created_at || $json.body?.created_at || $now.toISO()).toString() }}",
+              "type": "string"
+            },
+            {
+              "id": "f6a7b8c9-d0e1-2345-f012-456789012345",
+              "name": "lead_id",
+              "value": "={{ 'LEAD-' + $now.format('yyyyMMdd-HHmmss') }}",
+              "type": "string"
+            },
+            {
+              "id": "f7a8b9c0-e1f2-3456-0123-567890123456",
+              "name": "status",
+              "value": "new",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b2f4d9e3-5c6e-4b7a-0d1e-2f3a4b5c6d7e",
+      "name": "Normalize Lead",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c1d2e3f4-a5b6-7890-cdef-123456789abc",
+              "leftValue": "={{ $json.name }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c2d3e4f5-a6b7-8901-def0-23456789abcd",
+              "leftValue": "={{ $json.contact }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c3f5e0f4-6d7f-4c8b-1e2f-3a4b5c6d7e8f",
+      "name": "Validate Required",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [720, 300]
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "workspaceId": "CONFIGURE_WORKSPACE_ID",
+        "projectId": "CONFIGURE_BASE_ID",
+        "table": "CONFIGURE_TABLE_ID",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "lead_id",
+              "fieldValue": "={{ $json.lead_id }}"
+            },
+            {
+              "fieldName": "name",
+              "fieldValue": "={{ $json.name }}"
+            },
+            {
+              "fieldName": "contact",
+              "fieldValue": "={{ $json.contact }}"
+            },
+            {
+              "fieldName": "task",
+              "fieldValue": "={{ $json.task }}"
+            },
+            {
+              "fieldName": "source",
+              "fieldValue": "={{ $json.source }}"
+            },
+            {
+              "fieldName": "created_at1",
+              "fieldValue": "={{ $json.created_at }}"
+            },
+            {
+              "fieldName": "status",
+              "fieldValue": "={{ $json.status }}"
+            }
+          ]
+        }
+      },
+      "id": "d4f6a1a5-7e8a-5d9c-2f3a-4b5c6d7e8f9a",
+      "name": "NocoDB — Create Row",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 3,
+      "position": [960, 200],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "CONFIGURE_AFTER_IMPORT",
+          "name": "NocoDB account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "YOUR_TELEGRAM_CHAT_ID",
+        "text": "=Новая заявка с ai.petrzart.ru\n\nID: {{ $('Normalize Lead').item.json.lead_id }}\nИмя: {{ $('Normalize Lead').item.json.name }}\nКонтакт: {{ $('Normalize Lead').item.json.contact }}\nЗадача: {{ $('Normalize Lead').item.json.task || '—' }}\nИсточник: {{ $('Normalize Lead').item.json.source }}\nВремя: {{ $('Normalize Lead').item.json.created_at }}",
+        "additionalFields": {}
+      },
+      "id": "e5f7b2h6-8f9h-6e0d-3g4h-5c6d7e8f9g0h",
+      "name": "Telegram — Notify",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1200, 200],
+      "credentials": {
+        "telegramApi": {
+          "id": "CONFIGURE_AFTER_IMPORT",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: true, lead_id: $('Normalize Lead').item.json.lead_id } }}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "https://ai.petrzart.ru"
+              },
+              {
+                "name": "Access-Control-Allow-Methods",
+                "value": "POST, OPTIONS"
+              }
+            ]
+          }
+        }
+      },
+      "id": "f6f8c3i7-9g0i-7f1e-4h5i-6d7e8f9g0h1i",
+      "name": "Respond — Success",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1440, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: false, error: 'name and contact are required' } }}",
+        "options": {
+          "responseCode": 422,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "https://ai.petrzart.ru"
+              },
+              {
+                "name": "Access-Control-Allow-Methods",
+                "value": "POST, OPTIONS"
+              }
+            ]
+          }
+        }
+      },
+      "id": "g7g9d4j8-0h1j-8g2f-5i6j-7e8f9g0h1i2j",
+      "name": "Respond — Error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [960, 420]
+    }
+  ],
+  "connections": {
+    "Webhook — Lead Form": {
+      "main": [
+        [
+          {
+            "node": "Normalize Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Lead": {
+      "main": [
+        [
+          {
+            "node": "Validate Required",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Required": {
+      "main": [
+        [
+          {
+            "node": "NocoDB — Create Row",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond — Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NocoDB — Create Row": {
+      "main": [
+        [
+          {
+            "node": "Telegram — Notify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram — Notify": {
+      "main": [
+        [
+          {
+            "node": "Respond — Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
